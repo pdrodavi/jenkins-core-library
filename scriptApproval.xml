@@ -5,6 +5,7 @@
         <string>field br.dev.pedrodavi.jenkins.pipeline.utils.logging.Logger name</string>
 <!--        <string>field io.wcm.devops.jenkins.pipeline.versioning.IntegerItem INTEGER_ZER0</string>-->
         <string>method java.util.List indexOf java.lang.Object</string>
+        <string>method java.lang.Class getCanonicalName</string>
 <!--        <string>new io.wcm.devops.jenkins.pipeline.utils.TypeUtils</string>-->
         <string>new br.dev.pedrodavi.jenkins.pipeline.utils.logging.Logger java.lang.Object</string>
         <string>staticMethod org.codehaus.groovy.runtime.DefaultGroovyMethods print java.lang.Object</string>
