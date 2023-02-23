@@ -1,4 +1,4 @@
-import br.dev.pedrodavi.jenkins.pipeline.Constants
+import pipeline.Constants
 
 def call() {
 

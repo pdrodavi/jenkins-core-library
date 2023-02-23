@@ -1,9 +1,9 @@
 import br.dev.pedrodavi.jenkins.pipeline.Demo
-import org.codehaus.groovy.tools.shell.util.Logger
+import br.dev.pedrodavi.jenkins.pipeline.utils.logging.Logger
 
 void call() {
     Logger log = new Logger(this)
-    log.printf("Direto do objeto")
+    log.info("Direto do objeto")
 
     Demo demo = new Demo()
     demo.sayHello()

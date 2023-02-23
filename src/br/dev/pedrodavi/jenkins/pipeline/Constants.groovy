@@ -1,4 +1,4 @@
-package br.dev.pedrodavi.jenkins.pipeline
+package pipeline
 
 class Constants {
     public static final String JENKINS_GITHUB_CREDENTIALS_ID = "github-token"

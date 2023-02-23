@@ -1,6 +1,6 @@
 package br.dev.pedrodavi.jenkins.pipeline
 
-import org.codehaus.groovy.tools.shell.util.Logger
+import br.dev.pedrodavi.jenkins.pipeline.utils.logging.Logger
 
 class Demo {
 
@@ -11,6 +11,6 @@ class Demo {
     }
 
     void sayHello() {
-        log.printf("Hello! Pela Classe")
+        log.info("Hello! Pela Classe")
     }
 }
