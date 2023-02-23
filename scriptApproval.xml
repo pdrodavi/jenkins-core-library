@@ -3,13 +3,13 @@
     <approvedScriptHashes/>
     <approvedSignatures>
         <string>field br.dev.pedrodavi.jenkins.pipeline.utils.logging.Logger name</string>
-<!--        <string>field io.wcm.devops.jenkins.pipeline.versioning.IntegerItem INTEGER_ZER0</string>-->
+<!--        <string>field br.dev.pedrodavi.jenkins.pipeline.versioning.IntegerItem INTEGER_ZER0</string>-->
         <string>method java.util.List indexOf java.lang.Object</string>
         <string>method java.lang.Class getCanonicalName</string>
-<!--        <string>new io.wcm.devops.jenkins.pipeline.utils.TypeUtils</string>-->
+<!--        <string>new br.dev.pedrodavi.jenkins.pipeline.utils.TypeUtils</string>-->
         <string>new br.dev.pedrodavi.jenkins.pipeline.utils.logging.Logger java.lang.Object</string>
         <string>staticMethod org.codehaus.groovy.runtime.DefaultGroovyMethods print java.lang.Object</string>
-<!--        <string>new io.wcm.devops.jenkins.pipeline.versioning.IntegerItem</string>-->
+<!--        <string>new br.dev.pedrodavi.jenkins.pipeline.versioning.IntegerItem</string>-->
         <string>new java.util.ArrayList</string>
         <string>staticField br.dev.pedrodavi.jenkins.pipeline.utils.logging.LogLevel ALL</string>
         <string>staticField br.dev.pedrodavi.jenkins.pipeline.utils.logging.LogLevel DEBUG</string>
@@ -20,7 +20,7 @@
         <string>staticField br.dev.pedrodavi.jenkins.pipeline.utils.logging.LogLevel NONE</string>
         <string>staticField br.dev.pedrodavi.jenkins.pipeline.utils.logging.LogLevel TRACE</string>
         <string>staticField br.dev.pedrodavi.jenkins.pipeline.utils.logging.LogLevel WARN</string>
-<!--        <string>staticField io.wcm.devops.jenkins.pipeline.versioning.StringItem _QUALIFIERS</string>-->
+<!--        <string>staticField br.dev.pedrodavi.jenkins.pipeline.versioning.StringItem _QUALIFIERS</string>-->
         <string>staticMethod br.dev.pedrodavi.jenkins.pipeline.utils.logging.LogLevel $INIT java.lang.Object[]</string>
         <string>staticMethod br.dev.pedrodavi.jenkins.pipeline.utils.logging.LogLevel fromInteger java.lang.Integer</string>
         <string>staticMethod br.dev.pedrodavi.jenkins.pipeline.utils.logging.LogLevel fromString java.lang.String</string>
