@@ -339,7 +339,7 @@ class Logger implements Serializable {
         lvlString = wrapColor(logLevel.getColorCode(), lvlString)
 
         if (dsl != null) {
-            dsl.print("$lvlString $msg")
+            dsl.echo("$lvlString $msg")
         }
     }
 
