@@ -7,18 +7,30 @@ def call() {
             ]
     ])
 
+    Boolean executeStage = false
+
     if ("${inputAnalysis}" == 'Yes') {
-        withSonarQubeEnv('sonarqube') {
-            echo env.WORKSPACE
-            sh "mvn -B clean verify sonar:sonar"
-        }
-        def qualitygate = waitForQualityGate()
-        if (qualitygate.status != "OK") {
-            cleanWs()
-            error "Pipeline aborted due to quality gate failure: ${qualitygate.status}"
-        }
-    } else {
-        echo 'Step Skipped'
+        executeStage = true
     }
+
+    conditionalStage("Analysis SonarQube", executeStage) {
+
+        if ("${inputAnalysis}" == 'Yes') {
+            withSonarQubeEnv('sonarqube') {
+                echo env.WORKSPACE
+                sh "mvn -B clean verify sonar:sonar"
+            }
+            def qualitygate = waitForQualityGate()
+            if (qualitygate.status != "OK") {
+                cleanWs()
+                error "Pipeline aborted due to quality gate failure: ${qualitygate.status}"
+            }
+        } else {
+            echo 'Step Skipped'
+        }
+
+    }
+
+
 
 }
