@@ -1,7 +1,9 @@
 package br.dev.pedrodavi.jenkins.pipeline.utils.logging
 
 import com.cloudbees.groovy.cps.NonCPS
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings
 
+@SuppressFBWarnings('ME_ENUM_FIELD_SETTER')
 enum LogLevel implements Serializable {
 
     ALL(0, 0),
