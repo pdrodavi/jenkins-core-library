@@ -1,4 +1,4 @@
-package br.dev.pedrodavi
+package br.dev.pedrodavi.jenkins.pipeline
 
 class Git implements Serializable {
 

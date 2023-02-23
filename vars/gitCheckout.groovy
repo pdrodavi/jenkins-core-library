@@ -1,4 +1,4 @@
-import br.dev.pedrodavi.Constants
+import br.dev.pedrodavi.jenkins.pipeline.Constants
 
 def call(String repo){
 
