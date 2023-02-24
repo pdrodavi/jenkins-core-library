@@ -5,9 +5,11 @@ def call(Map args) {
             gitCheckout(args.repo)
         }
 
-        stage("Analysis SonarQube") {
-            scanSonar()
-        }
+        scanSonar()
+
+//        stage("Analysis SonarQube") {
+//            scanSonar()
+//        }
 
         stage("Package") {
             packageArtifact()
