@@ -7,9 +7,13 @@ def call() {
     node {
 
         stage("PipelineJob") {
-            PipelineJob example_job = new PipelineJob(this as DslFactory, 'EXAMPLE_JOB_ID', 'EXAMPLE_JOB_NAME',
+            PipelineJob job = new PipelineJob(this as DslFactory, 'EXAMPLE_JOB_ID', 'EXAMPLE_JOB_NAME',
                     'https://github.com/pdrodavi/app-quarkus-job-deploy.git', Constants.JENKINS_GITHUB_CREDENTIALS_ID)
-            example_job.createJob()
+
+        }
+
+        stage("createJob") {
+            createJob("EXAMPLE_JOB_ID", "EXAMPLE_JOB_NAME", "https://github.com/pdrodavi/app-quarkus-job-deploy.git", Constants.JENKINS_GITHUB_CREDENTIALS_ID)
         }
 
     }
