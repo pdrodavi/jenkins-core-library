@@ -2,7 +2,7 @@ import javaposse.jobdsl.dsl.DslFactory
 
 def call(DslFactory dslFactory, String pipelineId, String pipelineName, String gitRemoteURL, String credentialsId) {
 
-    dslFactory.pipelineJob(pipelineId) {
+    dslFactory.freeStyleJob(pipelineId) {
         description("test")
         displayName(pipelineName)
         keepDependencies(false)
