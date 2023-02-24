@@ -1,4 +1,6 @@
 import br.dev.pedrodavi.jenkins.pipeline.Constants
+import br.dev.pedrodavi.jenkins.pipeline.utils.logging.*
+import static br.dev.pedrodavi.jenkins.pipeline.utils.ConfigConstants.*
 
 def call(String repo){
 
@@ -8,6 +10,22 @@ def call(String repo){
                     string(name: 'Input branch')
             ]
     ])
+
+    Map config = [ (LOGLEVEL) : LogLevel.TRACE ]
+
+    // initialize the logger
+    Logger.init(this, config)
+    Logger log = new Logger(this)
+
+    ansiColor('xterm') {
+        log.trace("trace logging")
+        log.debug("debug logging")
+        log.info("info logging")
+        log.deprecated("deprecated logging")
+        log.warn("warn logging")
+        log.error("error logging")
+        log.fatal("fatal logging")
+    }
 
     echo "Branch selecionada: ${inputBranch}"
 

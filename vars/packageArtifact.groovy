@@ -3,7 +3,7 @@ import br.dev.pedrodavi.jenkins.pipeline.utils.logging.*
 
 def call() {
 
-//    Logger.init(this, LogLevel.INFO)
+    Logger.init(this, LogLevel.INFO)
     Logger log = new Logger(this)
 
     log.info(readMavenPom().getArtifactId())
