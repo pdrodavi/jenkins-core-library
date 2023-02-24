@@ -19,7 +19,7 @@ class PipelineJob {
     }
 
     def createJob() {
-        this.dslFactory.job(this.pipelineId) {
+        this.dslFactory.freeStyleJob(this.pipelineId) {
             description("test")
             displayName(this.pipelineName)
             keepDependencies(false)
