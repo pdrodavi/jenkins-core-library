@@ -1,8 +1,8 @@
 import javaposse.jobdsl.dsl.DslFactory
 
-def call(String pipelineId, String pipelineName, String gitRemoteURL, String credentialsId) {
+def call(DslFactory dslFactory, String pipelineId, String pipelineName, String gitRemoteURL, String credentialsId) {
 
-    DslFactory.newInstance().pipelineJob(pipelineId) {
+    dslFactory.pipelineJob(pipelineId) {
         description("test")
         displayName(pipelineName)
         keepDependencies(false)
