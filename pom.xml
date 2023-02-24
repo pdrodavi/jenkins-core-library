@@ -154,6 +154,21 @@
             <artifactId>http_request</artifactId>
             <version>1.8.22</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.jenkins-ci.plugins/job-dsl-core -->
+        <dependency>
+            <groupId>org.jenkins-ci.plugins</groupId>
+            <artifactId>job-dsl-core</artifactId>
+            <version>1.66</version>
+        </dependency>
+
+        <dependency>
+            <groupId>net.gleske</groupId>
+            <artifactId>jervis</artifactId>
+            <version>1.7</version>
+            <type>pom</type>
+        </dependency>
+
     </dependencies>
 
     <build>
