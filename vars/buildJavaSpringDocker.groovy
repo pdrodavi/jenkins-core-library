@@ -19,9 +19,11 @@ def call(Map args) {
             buildImageDocker()
         }
 
-        stage("Publish to Registry") {
-            publishToRegistry()
-        }
+//        stage("Publish to Registry") {
+//            publishToRegistry()
+//        }
+
+        publishToRegistry()
 
         stage("Deploying") {
             startContainer()
