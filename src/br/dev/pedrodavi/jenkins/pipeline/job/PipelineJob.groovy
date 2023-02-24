@@ -1,5 +1,6 @@
 package br.dev.pedrodavi.jenkins.pipeline.job
 
+import com.cloudbees.groovy.cps.NonCPS
 import javaposse.jobdsl.dsl.DslFactory
 
 class PipelineJob {
@@ -18,6 +19,7 @@ class PipelineJob {
         this.credentialsId = credentialsId
     }
 
+    @NonCPS
     def createJob() {
         this.dslFactory.freeStyleJob(this.pipelineId) {
             description("test")
