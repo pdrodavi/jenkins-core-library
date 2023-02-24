@@ -12,7 +12,45 @@ def call() {
 
         stage("PipelineJob") {
 
-            jobDsl targets: 'work/jobs/*.groovy',
+            String jobScript = "pipelineJob(\"app-job-deploy-sb\") {\n" +
+                    "    description()\n" +
+                    "    keepDependencies(false)\n" +
+                    "    definition {\n" +
+                    "        cpsScm {\n" +
+                    "            \"\"\"@Library('pipeline-library') pipelineLibrary\n" +
+                    "\n" +
+                    "pipeline {\n" +
+                    "\n" +
+                    "  agent any\n" +
+                    "\n" +
+                    "  stages {\n" +
+                    "\n" +
+                    "    stage('Initialize') {\n" +
+                    "      steps {\n" +
+                    "        cleanWs()\n" +
+                    "        buildJavaSpringDocker(repo: \"app-job-deploy-sb\")\n" +
+                    "      }\n" +
+                    "    }\n" +
+                    "\n" +
+                    "\n" +
+                    "  }\n" +
+                    "}\"\"\"\t\t}\n" +
+                    "    }\n" +
+                    "    disabled(false)\n" +
+                    "    configure {\n" +
+                    "        it / 'properties' / 'jenkins.model.BuildDiscarderProperty' {\n" +
+                    "            strategy {\n" +
+                    "                'daysToKeep'('1')\n" +
+                    "                'numToKeep'('2')\n" +
+                    "                'artifactDaysToKeep'('-1')\n" +
+                    "                'artifactNumToKeep'('-1')\n" +
+                    "            }\n" +
+                    "        }\n" +
+                    "    }\n" +
+                    "}\n"
+
+//            jobDsl targets: 'work/jobs/*.groovy',
+            jobDsl scriptText: jobScript,
                     removedJobAction: 'DELETE',
                     removedViewAction: 'DELETE',
                     lookupStrategy: 'SEED_JOB',
