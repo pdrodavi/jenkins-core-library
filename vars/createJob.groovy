@@ -1,5 +1,7 @@
+import com.cloudbees.groovy.cps.NonCPS
 import javaposse.jobdsl.dsl.DslFactory
 
+@NonCPS
 def call(DslFactory dslFactory, String pipelineId, String pipelineName, String gitRemoteURL, String credentialsId) {
 
     Boolean executeStage = true
