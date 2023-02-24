@@ -17,7 +17,7 @@ def call(Map args) {
             buildImageDocker()
         }
 
-        stage("Publish") {
+        stage("Publish to Registry") {
             publishToRegistry()
         }
 
