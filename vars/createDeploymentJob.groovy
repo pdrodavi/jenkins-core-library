@@ -1,11 +1,3 @@
-import br.dev.pedrodavi.jenkins.pipeline.builder.GradleCiJobBuilder
-import br.dev.pedrodavi.jenkins.pipeline.builder.JavaCiJobBuilder
-import br.dev.pedrodavi.jenkins.pipeline.job.PipelineJob
-import javaposse.jobdsl.dsl.DslFactory
-import br.dev.pedrodavi.jenkins.pipeline.Constants
-import javaposse.jobdsl.dsl.Job
-import javaposse.jobdsl.dsl.JobParent
-
 def call() {
 
     node {
