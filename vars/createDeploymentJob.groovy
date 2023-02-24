@@ -9,10 +9,10 @@ def call() {
         stage("PipelineJob") {
             PipelineJob job = new PipelineJob(this as DslFactory, '1', 'test',
                     'https://github.com/pdrodavi/app-quarkus-job-deploy.git', Constants.JENKINS_GITHUB_CREDENTIALS_ID)
-//            job.createJob()
+            job.createJob()
         }
 
-        createJob(this as DslFactory, "EXAMPLE_JOB_ID", "EXAMPLE_JOB_NAME", "https://github.com/pdrodavi/app-quarkus-job-deploy.git", Constants.JENKINS_GITHUB_CREDENTIALS_ID)
+//        createJob(this as DslFactory, "EXAMPLE_JOB_ID", "EXAMPLE_JOB_NAME", "https://github.com/pdrodavi/app-quarkus-job-deploy.git", Constants.JENKINS_GITHUB_CREDENTIALS_ID)
 
     }
 
