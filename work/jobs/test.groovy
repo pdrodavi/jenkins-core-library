@@ -3,7 +3,7 @@ pipelineJob("app-job-deploy-sb-2") {
     keepDependencies(false)
     definition {
         cps {
-            """@Library('pipeline-library') pipelineLibrary
+            script("""@Library('pipeline-library') pipelineLibrary
 
 pipeline {
 
@@ -20,7 +20,7 @@ pipeline {
 
 
   }
-}"""		}
+}""")		}
     }
     disabled(false)
     configure {

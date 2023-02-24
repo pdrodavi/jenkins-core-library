@@ -17,7 +17,7 @@ def call() {
                     "    keepDependencies(false)\n" +
                     "    definition {\n" +
                     "        cps {\n" +
-                    "            \"\"\"@Library('pipeline-library') pipelineLibrary\n" +
+                    "            script(\"\"\"@Library('pipeline-library') pipelineLibrary\n" +
                     "\n" +
                     "pipeline {\n" +
                     "\n" +
@@ -34,7 +34,7 @@ def call() {
                     "\n" +
                     "\n" +
                     "  }\n" +
-                    "}\"\"\"\t\t}\n" +
+                    "}\"\"\")\t\t}\n" +
                     "    }\n" +
                     "    disabled(false)\n" +
                     "    configure {\n" +
