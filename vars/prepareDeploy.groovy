@@ -1,3 +1,6 @@
+import org.jenkinsci.plugins.pipeline.StageStatus
+import org.jenkinsci.plugins.pipeline.modeldefinition.Utils
+
 def call() {
 
     inputEnvironment = input([

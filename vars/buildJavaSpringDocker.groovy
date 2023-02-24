@@ -21,9 +21,5 @@ def call(Map args) {
             prepareDeploy()
         }
 
-//        stage("Deploying") {
-//            startContainer()
-//        }
-
     }
 }
