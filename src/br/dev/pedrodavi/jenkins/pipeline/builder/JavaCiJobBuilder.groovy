@@ -8,13 +8,14 @@ import javaposse.jobdsl.dsl.Job
 @Builder(builderStrategy = SimpleStrategy, prefix = '')
 class JavaCiJobBuilder {
 
+    DslFactory dslFactory
     String pipelineId
     String pipelineName
     String gitRemoteURL
     String credentialsId
 
-    Job build(DslFactory dslFactory) {
-        dslFactory.freeStyleJob(this.pipelineId) {
+    Job build() {
+        dslFactory.job(this.pipelineId) {
             description("test")
             displayName(this.pipelineName)
             keepDependencies(false)
