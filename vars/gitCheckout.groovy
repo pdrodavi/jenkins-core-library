@@ -1,4 +1,5 @@
 import br.dev.pedrodavi.jenkins.pipeline.Constants
+import br.dev.pedrodavi.jenkins.pipeline.utils.ConfigConstants
 //import br.dev.pedrodavi.jenkins.pipeline.utils.logging.Logger
 
 def call(String repo){
@@ -11,6 +12,14 @@ def call(String repo){
                     string(name: 'Input branch')
             ]
     ])
+
+    checkoutScm(
+            (SCM) : [
+                    (SCM_URL) : "https://github.com/pdrodavi/${repo}.git",
+                    (SCM_CREDENTIALS_ID) : Constants.JENKINS_GITHUB_CREDENTIALS_ID,
+                    (SCM_BRANCHES) : [[name: '*/main'], [name: '*/develop']],
+            ]
+    )
 
     echo "Branch selecionada: ${inputBranch}"
 //    log.info("Branch selecionada: ${inputBranch}")
