@@ -12,11 +12,11 @@ def call() {
 
         stage("PipelineJob") {
 
-            String jobScript = "pipelineJob(\"app-job-deploy-sb\") {\n" +
+            String jobScript = "pipelineJob(\"app-job-deploy-sb-2\") {\n" +
                     "    description()\n" +
                     "    keepDependencies(false)\n" +
                     "    definition {\n" +
-                    "        cpsScm {\n" +
+                    "        cps {\n" +
                     "            \"\"\"@Library('pipeline-library') pipelineLibrary\n" +
                     "\n" +
                     "pipeline {\n" +

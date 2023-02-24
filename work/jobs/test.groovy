@@ -1,8 +1,8 @@
-pipelineJob("app-job-deploy-sb") {
+pipelineJob("app-job-deploy-sb-2") {
     description()
     keepDependencies(false)
     definition {
-        cpsScm {
+        cps {
             """@Library('pipeline-library') pipelineLibrary
 
 pipeline {
