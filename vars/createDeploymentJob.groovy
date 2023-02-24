@@ -21,7 +21,9 @@ def call() {
                     .gitRemoteURL('https://github.com/pdrodavi/app-quarkus-job-deploy.git')
                     .credentialsId(Constants.JENKINS_GITHUB_CREDENTIALS_ID)
 
-//            builder.build(this as DslFactory)
+            echo 'passou'
+
+            builder.build(this as DslFactory)
         }
 
 //        stage("PipelineJob2") {
