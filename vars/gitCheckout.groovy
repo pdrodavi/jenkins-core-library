@@ -1,5 +1,4 @@
 import br.dev.pedrodavi.jenkins.pipeline.Constants
-import br.dev.pedrodavi.jenkins.pipeline.Demo
 
 def call(String repo){
 
@@ -9,9 +8,6 @@ def call(String repo){
                     string(name: 'Input branch')
             ]
     ])
-
-    Demo demo = new Demo()
-    demo.sayHello()
 
     echo "Branch selecionada: ${inputBranch}"
 
