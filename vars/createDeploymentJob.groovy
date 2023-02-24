@@ -2,7 +2,10 @@ import br.dev.pedrodavi.jenkins.pipeline.job.CreateJob
 
 def call() {
 
-    CreateJob.ant(this, "test", "clean")
+    def myJob = job('example')
+    CreateJob.addMyFeature(myJob)
+
+//    CreateJob.ant(this, "test", "clean")
 
 //    jobDsl scriptText: '''pipelineJob("job-test") {
 //        definition {
