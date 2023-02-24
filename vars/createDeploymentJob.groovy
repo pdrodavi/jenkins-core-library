@@ -1,4 +1,4 @@
-def createDeploymentJob(jobName, repoUrl) {
+def call(jobName, repoUrl) {
     pipelineJob(jobName) {
         definition {
             cpsScm {
