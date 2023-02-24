@@ -1,4 +1,5 @@
 import br.dev.pedrodavi.jenkins.pipeline.builder.GradleCiJobBuilder
+import br.dev.pedrodavi.jenkins.pipeline.builder.JavaCiJobBuilder
 import br.dev.pedrodavi.jenkins.pipeline.job.PipelineJob
 import javaposse.jobdsl.dsl.DslFactory
 import br.dev.pedrodavi.jenkins.pipeline.Constants
@@ -10,9 +11,17 @@ def call() {
     node {
 
         stage("PipelineJob") {
-            PipelineJob job = new PipelineJob(this as DslFactory, '1', 'test',
-                    'https://github.com/pdrodavi/app-quarkus-job-deploy.git', Constants.JENKINS_GITHUB_CREDENTIALS_ID)
-            job.build()
+
+//            PipelineJob job = new PipelineJob(this as DslFactory, '1', 'test',
+//                    'https://github.com/pdrodavi/app-quarkus-job-deploy.git', Constants.JENKINS_GITHUB_CREDENTIALS_ID)
+
+            JavaCiJobBuilder builder = new JavaCiJobBuilder()
+                    .pipelineId('1')
+                    .pipelineName('test')
+                    .gitRemoteURL('https://github.com/pdrodavi/app-quarkus-job-deploy.git')
+                    .credentialsId(Constants.JENKINS_GITHUB_CREDENTIALS_ID)
+
+            builder.build(this as DslFactory)
         }
 
 //        stage("PipelineJob2") {

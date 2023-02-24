@@ -22,8 +22,8 @@ class PipelineJob {
         this.credentialsId = credentialsId
     }
 
-    Job build() {
-        this.dslFactory.freeStyleJob(this.pipelineId) {
+    Job build(DslFactory dslFactory) {
+        dslFactory.freeStyleJob(this.pipelineId) {
             description("test")
             displayName(this.pipelineName)
             keepDependencies(false)
