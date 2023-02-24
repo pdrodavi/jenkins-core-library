@@ -5,8 +5,8 @@ def call() {
 //    echo readMavenPom().getVersion()
 //    echo "Realizando construção do artefato"
     runPrint("Realizando construção do artefato")
-    runPrint(readMavenPom().getArtifactId())
-    runPrint(readMavenPom().getVersion())
+//    runPrint(readMavenPom().getArtifactId())
+//    runPrint(readMavenPom().getVersion())
     runSh("mvn -Dmaven.test.skip=true -Dmaven.test.failure.ignore clean package")
 //    sh "mvn -Dmaven.test.skip=true -Dmaven.test.failure.ignore clean package"
 }
