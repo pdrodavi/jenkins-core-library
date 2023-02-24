@@ -1,5 +1,4 @@
 import br.dev.pedrodavi.jenkins.pipeline.model.Tool
-import br.dev.pedrodavi.jenkins.pipeline.utils.logging.*
 import static br.dev.pedrodavi.jenkins.pipeline.utils.ConfigConstants.*
 
 def call(Map args) {
@@ -9,13 +8,10 @@ def call(Map args) {
                     [ (TOOL_NAME): 'M3', (TOOL_TYPE): Tool.MAVEN ]
             ],
             (MAVEN): [
-                    (MAVEN_GOALS): [ "clean", "package" ],
-                    (MAVEN_ARGUMENTS) : ["-Dmaven.test.skip=true -Dmaven.test.failure.ignore"]
-            ],
-            (LOGLEVEL): LogLevel.INFO
+                    (MAVEN_ARGUMENTS) : ["-Dmaven.test.skip=true -Dmaven.test.failure.ignore"],
+                    (MAVEN_GOALS): [ "clean", "package" ]
+            ]
     ]
-
-    Logger.init(this, config)
 
     node {
 
