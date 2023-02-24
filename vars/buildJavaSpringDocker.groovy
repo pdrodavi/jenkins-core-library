@@ -6,10 +6,6 @@ def call(Map args) {
     Map config = [
             (TOOLS): [
                     [ (TOOL_NAME): 'M3', (TOOL_TYPE): Tool.MAVEN ]
-            ],
-            (MAVEN): [
-                    (MAVEN_ARGUMENTS) : ["-Dmaven.test.skip=true -Dmaven.test.failure.ignore"],
-                    (MAVEN_GOALS): [ "clean", "package" ]
             ]
     ]
 
@@ -24,8 +20,7 @@ def call(Map args) {
         scanSonar()
 
         stage("Package") {
-            //packageArtifact()
-            execMaven(config)
+            packageArtifact()
         }
 
         stage("Build Image") {
