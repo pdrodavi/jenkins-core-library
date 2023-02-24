@@ -1,19 +1,12 @@
 import br.dev.pedrodavi.jenkins.pipeline.job.PipelineJob
 import javaposse.jobdsl.dsl.DslFactory
 import br.dev.pedrodavi.jenkins.pipeline.Constants
-import javaposse.jobdsl.dsl.jobs.MultibranchWorkflowJob
 
 def call() {
 
-    node {
-        PipelineJob example_job = new PipelineJob(this as DslFactory, 'EXAMPLE_JOB_ID', 'EXAMPLE_JOB_NAME',
-                'https://github.com/pdrodavi/app-quarkus-job-deploy.git', Constants.JENKINS_GITHUB_CREDENTIALS_ID)
-        final def job = example_job.createJob()
-    }
-
-
-
-
+    PipelineJob example_job = new PipelineJob(this as DslFactory, 'EXAMPLE_JOB_ID', 'EXAMPLE_JOB_NAME',
+            'https://github.com/pdrodavi/app-quarkus-job-deploy.git', Constants.JENKINS_GITHUB_CREDENTIALS_ID)
+    example_job.createJob()
 
 //    def myJob = job('example')
 //    CreateJob.addMyFeature(myJob)

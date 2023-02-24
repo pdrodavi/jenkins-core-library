@@ -19,27 +19,19 @@ class PipelineJob {
     }
 
     def createJob() {
-        this.dslFactory.multibranchPipelineJob(this.pipelineId) {
+        this.dslFactory.pipelineJob(this.pipelineId) {
+            description("test")
             displayName(this.pipelineName)
-            branchSources {
+            keepDependencies(false)
+            scm {
                 git {
-                    // Sets credentials for authentication with the remote repository.
-                    credentialsId(this.credentialsId)
-                    // Sets a pattern for branches to exclude.
-                    excludes('')
-                    // Specifies a unique ID for this branch source.
-                    //id(this.pipelineId)
-                    // If set, ignores push notifications.
-                    ignoreOnPushNotifications(true)
-                    // Sets a pattern for branches to include.
-                    includes('*')
-                    // Sets the Git remote repository URL.
-                    remote(this.gitRemoteURL)
+                    remote {
+                        name('origin')
+                        url(this.gitRemoteURL)
+                        credentials(this.credentialsId)
+                    }
+                    branch('main')
                 }
-            }
-            triggers {
-                // Check for modifications in branches every 60 minutes
-                periodic(60)
             }
         }
     }
