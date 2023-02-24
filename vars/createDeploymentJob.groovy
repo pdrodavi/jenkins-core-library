@@ -1,6 +1,5 @@
 import br.dev.pedrodavi.jenkins.pipeline.job.PipelineJob
 import javaposse.jobdsl.dsl.DslFactory
-import javaposse.jobdsl.dsl.jobs.FreeStyleJob
 import br.dev.pedrodavi.jenkins.pipeline.Constants
 
 def call() {
