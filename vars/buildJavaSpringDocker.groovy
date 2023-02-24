@@ -7,10 +7,6 @@ def call(Map args) {
 
         scanSonar()
 
-//        stage("Analysis SonarQube") {
-//            scanSonar()
-//        }
-
         stage("Package") {
             packageArtifact()
         }
@@ -19,15 +15,15 @@ def call(Map args) {
             buildImageDocker()
         }
 
-//        stage("Publish to Registry") {
-//            publishToRegistry()
-//        }
-
         publishToRegistry()
 
-        stage("Deploying") {
-            startContainer()
+        stage("Prepare for Deploy") {
+            prepareDeploy()
         }
+
+//        stage("Deploying") {
+//            startContainer()
+//        }
 
     }
 }
