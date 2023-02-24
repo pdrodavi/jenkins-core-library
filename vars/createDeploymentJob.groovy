@@ -12,18 +12,25 @@ def call() {
 
         stage("PipelineJob") {
 
+            jobDsl targets: 'work/jobs/*.groovy',
+                    removedJobAction: 'DELETE',
+                    removedViewAction: 'DELETE',
+                    lookupStrategy: 'SEED_JOB',
+                    additionalClasspath: [].join('\n')
+//                    additionalParameters: [repos: repos]
+
 //            PipelineJob job = new PipelineJob(this as DslFactory, '1', 'test',
 //                    'https://github.com/pdrodavi/app-quarkus-job-deploy.git', Constants.JENKINS_GITHUB_CREDENTIALS_ID)
 
-            JavaCiJobBuilder builder = new JavaCiJobBuilder()
-                    .pipelineId('1')
-                    .pipelineName('test')
-                    .gitRemoteURL('https://github.com/pdrodavi/app-quarkus-job-deploy.git')
-                    .credentialsId(Constants.JENKINS_GITHUB_CREDENTIALS_ID)
-
-            echo 'passou'
-
-            builder.build()
+//            JavaCiJobBuilder builder = new JavaCiJobBuilder()
+//                    .pipelineId('1')
+//                    .pipelineName('test')
+//                    .gitRemoteURL('https://github.com/pdrodavi/app-quarkus-job-deploy.git')
+//                    .credentialsId(Constants.JENKINS_GITHUB_CREDENTIALS_ID)
+//
+//            echo 'passou'
+//
+//            builder.build()
         }
 
 //        stage("PipelineJob2") {
