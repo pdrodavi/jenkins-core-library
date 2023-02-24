@@ -15,7 +15,7 @@ class JavaCiJobBuilder {
     String credentialsId
 
     Job build() {
-        dslFactory.job(this.pipelineId) {
+        this.dslFactory.job(this.pipelineId) {
             description("test")
             displayName(this.pipelineName)
             keepDependencies(false)
