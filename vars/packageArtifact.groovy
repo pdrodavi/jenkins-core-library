@@ -1,12 +1,15 @@
-import static br.dev.pedrodavi.jenkins.pipeline.utils.Cmds.*
+import org.jenkinsci.plugins.pipeline.modeldefinition.Utils
+import br.dev.pedrodavi.jenkins.pipeline.utils.logging.*
 
 def call() {
+
+    Logger.init(this, [ logLevel: LogLevel.INFO ])
+    Logger log = new Logger(this)
+
+    log.info(readMavenPom().getArtifactId())
+    log.info("Realizando construção do artefato")
 //    echo readMavenPom().getArtifactId()
 //    echo readMavenPom().getVersion()
 //    echo "Realizando construção do artefato"
-    runPrint("Realizando construção do artefato")
-//    runPrint(readMavenPom().getArtifactId())
-//    runPrint(readMavenPom().getVersion())
-    runSh("mvn -Dmaven.test.skip=true -Dmaven.test.failure.ignore clean package")
-//    sh "mvn -Dmaven.test.skip=true -Dmaven.test.failure.ignore clean package"
+    sh "mvn -Dmaven.test.skip=true -Dmaven.test.failure.ignore clean package"
 }
