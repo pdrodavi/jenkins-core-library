@@ -23,7 +23,7 @@ def call() {
 
             echo 'passou'
 
-            builder.build(this as DslFactory)
+            builder.build()
         }
 
 //        stage("PipelineJob2") {
