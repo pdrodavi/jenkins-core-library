@@ -18,3 +18,5 @@ def createDeploymentJob(jobName, repoUrl) {
         }
     }
 }
+
+createDeploymentJob("job-test", "https://github.com/pdrodavi/app-quarkus-job-deploy.git")
