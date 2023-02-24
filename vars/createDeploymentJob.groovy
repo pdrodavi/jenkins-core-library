@@ -1,13 +1,14 @@
-def createDeploymentJob(jobName, repoUrl) {
-    pipelineJob(jobName) {
+def call() {
+
+    jobDsl scriptText: '''pipelineJob("job-test") {
         definition {
             cpsScm {
                 scm {
                     git {
                         remote {
-                            url(repoUrl)
+                            url("https://github.com/pdrodavi/app-quarkus-job-deploy.git")
                         }
-                        branches('master')
+                        branches(\'main\')
                         extensions {
                             cleanBeforeCheckout()
                         }
@@ -16,7 +17,6 @@ def createDeploymentJob(jobName, repoUrl) {
                 scriptPath("jobs/deploy.groovy")
             }
         }
-    }
-}
+    }'''
 
-createDeploymentJob("job-test", "https://github.com/pdrodavi/app-quarkus-job-deploy.git")
+}
