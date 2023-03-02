@@ -22,7 +22,7 @@ def call(String repo){
 
         echo "Branch selecionada: ${inputBranch}"
 
-        git branch: "${inputBranch}", credentialsId: $GITHUBRESTJWT, url: "https://github.com/pdrodavi/${repo}.git"
+        git branch: "${inputBranch}", credentialsId: $GITHUBCRED, url: "https://github.com/pdrodavi/${repo}.git"
 
     }
 
