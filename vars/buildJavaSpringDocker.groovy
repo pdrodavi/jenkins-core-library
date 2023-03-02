@@ -10,9 +10,9 @@ def call(Map args) {
             ]
     ]
 
-    environment {
-        GITHUBCRED = credentials(Constants.JENKINS_GITHUB_REST_CREDENTIALS_ID)
-    }
+//    environment {
+//        GITHUBCRED = credentials(Constants.JENKINS_GITHUB_REST_CREDENTIALS_ID)
+//    }
 
     node {
 
