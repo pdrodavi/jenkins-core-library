@@ -33,6 +33,7 @@ def call(String repo){
 
     echo "Branch selecionada: ${inputBranch}"
 
-    git branch: "${inputBranch}", credentialsId: Constants.JENKINS_GITHUB_CREDENTIALS_ID, url: "https://github.com/pdrodavi/${repo}.git"
+//    git branch: "${inputBranch}", credentialsId: Constants.JENKINS_GITHUB_CREDENTIALS_ID, url: "https://github.com/pdrodavi/${repo}.git"
+    git branch: "${inputBranch}", credentialsId: Constants.JENKINS_GITHUB_REST_CREDENTIALS_ID, url: "https://github.com/pdrodavi/${repo}.git"
 
 }
