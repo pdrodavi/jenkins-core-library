@@ -8,7 +8,8 @@ def call() {
         httpRequest consoleLogResponseBody: true, customHeaders: [[maskValue: false, name: 'Accept', value: 'application/vnd.github+json'], [maskValue: false, name: 'Authorization', value: "Bearer ${GITHUBRESTJWT}"], [maskValue: false, name: 'X-GitHub-Api-Version', value: '2022-11-28']], outputFile: 'branches.json', url: 'https://api.github.com/repos/Srvex/example-auth-jwt/branches', wrapAsMultipart: false
 
         def props = readJSON file: "${env.WORKSPACE}/branches.json"
-        echo props['*'].name
+//        echo props['*'].name
+        log("info", props['*'].name)
 
     }
 
