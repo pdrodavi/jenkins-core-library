@@ -9,8 +9,9 @@ def call() {
 
 //        def props = readJSON file: "${env.WORKSPACE}/branches.json"
         def props = readJSON file: "${env.WORKSPACE}/branches.json", returnPojo: true
-        props['*'].each { key, value ->
-            echo "Walked through key $key and value $value"
+        props.each { key, value ->
+            echo "$key.name"
+            echo "$value"
         }
 //        echo props['*'].name
 //        log("info", props['*'].name)
