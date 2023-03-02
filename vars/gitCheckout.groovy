@@ -13,20 +13,23 @@ def call(String repo){
             lst.add("$key.name")
         }
 
+        inputBranch = input([
+                message: 'Choose Branch',
+                parameters: [
+                        choice(name: 'Branches', choices: lst, description: 'Select branch for deploy')
+                ]
+        ])
+
+        echo "Branch selecionada: ${inputBranch}"
+
+        git branch: "${inputBranch}", credentialsId: "${GITHUBRESTJWT}", url: "https://github.com/pdrodavi/${repo}.git"
+
     }
 
-    inputBranch = input([
-            message: 'Choose Branch',
-            parameters: [
-                    choice(name: 'Branches', choices: lst, description: 'Select branch for deploy')
-            ]
-    ])
-
-    echo "Branch selecionada: ${inputBranch}"
-
+/*
     withCredentials([string(credentialsId: Constants.JENKINS_GITHUB_CREDENTIALS_ID, variable: 'GITHUBCRED')]) {
         git branch: "${inputBranch}", credentialsId: "${GITHUBCRED}", url: "https://github.com/pdrodavi/${repo}.git"
-    }
+    }*/
 
 //    git branch: "${inputBranch}", credentialsId: Constants.JENKINS_GITHUB_CREDENTIALS_ID, url: "https://github.com/pdrodavi/${repo}.git"
 
