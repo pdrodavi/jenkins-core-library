@@ -2,8 +2,6 @@ import br.dev.pedrodavi.jenkins.pipeline.Constants
 
 def call(String repo){
 
-    git branch: "main", credentialsId: Constants.JENKINS_GITHUB_CREDENTIALS_ID, url: "https://github.com/pdrodavi/${repo}.git"
-
     def lst = [];
 
     withCredentials([string(credentialsId: Constants.JENKINS_GITHUB_REST_CREDENTIALS_ID, variable: 'GITHUBRESTJWT')]) {
@@ -17,6 +15,8 @@ def call(String repo){
 
     }
 
+    sh 'ls -a'
+
     inputBranch = input([
             message: 'Choose Branch',
             parameters: [
@@ -25,6 +25,8 @@ def call(String repo){
     ])
 
     echo "Branch selecionada: ${inputBranch}"
+
+    git branch: "main", credentialsId: Constants.JENKINS_GITHUB_CREDENTIALS_ID, url: "https://github.com/pdrodavi/${repo}.git"
 
 //    git branch: "${inputBranch}", credentialsId: "${GITHUBCRED}", url: "https://github.com/pdrodavi/${repo}.git"
 
