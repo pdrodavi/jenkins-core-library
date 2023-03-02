@@ -28,7 +28,7 @@ def call(String repo){
 
     echo "Branch selecionada: ${inputBranch}"
 
-    git branch: "${inputBranch}", credentialsId: ${GITHUBCRED}, url: "https://github.com/pdrodavi/${repo}.git"
+    git branch: "${inputBranch}", credentialsId: "${GITHUBCRED}", url: "https://github.com/pdrodavi/${repo}.git"
 
 /*
     withCredentials([string(credentialsId: Constants.JENKINS_GITHUB_CREDENTIALS_ID, variable: 'GITHUBCRED')]) {
