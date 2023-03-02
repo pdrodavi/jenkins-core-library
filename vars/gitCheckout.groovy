@@ -23,7 +23,7 @@ def call(String repo){
     inputBranch = input([
             message: 'Choose Branch',
             parameters: [
-                    choice(name: 'Branches', choices: ['Yes', 'No'], description: 'Select branch for deploy')
+                    choice(name: 'Branches', choices: lst, description: 'Select branch for deploy')
             ]
     ])
 
