@@ -2,7 +2,7 @@ import br.dev.pedrodavi.jenkins.pipeline.Constants
 
 def call(String repo){
 
-    def lst = [''];
+    def lst = [];
 
     withCredentials([string(credentialsId: Constants.JENKINS_GITHUB_REST_CREDENTIALS_ID, variable: 'GITHUBRESTJWT')]) {
 
@@ -12,8 +12,9 @@ def call(String repo){
 //        def props = readJSON file: "${env.WORKSPACE}/branches.json"
         def props = readJSON file: "${env.WORKSPACE}/branches.json", returnPojo: true
         props.each { key, value ->
-            println(lst);
+//            println(lst);
             lst.add("$key.name")
+            println(lst);
 //            echo "$key.name"
         }
 
