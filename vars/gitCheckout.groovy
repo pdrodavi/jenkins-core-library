@@ -2,6 +2,10 @@ import br.dev.pedrodavi.jenkins.pipeline.Constants
 
 def call(String repo){
 
+    parameters {
+        string(name: 'GITHUBCRED', defaultValue: Constants.JENKINS_GITHUB_REST_CREDENTIALS_ID)
+    }
+
     def lst = [];
 
     withCredentials([string(credentialsId: Constants.JENKINS_GITHUB_REST_CREDENTIALS_ID, variable: 'GITHUBRESTJWT')]) {
@@ -13,18 +17,18 @@ def call(String repo){
             lst.add("$key.name")
         }
 
-        inputBranch = input([
-                message: 'Choose Branch',
-                parameters: [
-                        choice(name: 'Branches', choices: lst, description: 'Select branch for deploy')
-                ]
-        ])
-
-        echo "Branch selecionada: ${inputBranch}"
-
-        git branch: "${inputBranch}", credentialsId: '$GITHUBCRED', url: "https://github.com/pdrodavi/${repo}.git"
-
     }
+
+    inputBranch = input([
+            message: 'Choose Branch',
+            parameters: [
+                    choice(name: 'Branches', choices: lst, description: 'Select branch for deploy')
+            ]
+    ])
+
+    echo "Branch selecionada: ${inputBranch}"
+
+    git branch: "${inputBranch}", credentialsId: ${GITHUBCRED}, url: "https://github.com/pdrodavi/${repo}.git"
 
 /*
     withCredentials([string(credentialsId: Constants.JENKINS_GITHUB_CREDENTIALS_ID, variable: 'GITHUBCRED')]) {
