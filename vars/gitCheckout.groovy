@@ -30,10 +30,13 @@ def call(String repo){
 
 //    git branch: "${inputBranch}", credentialsId: "${GITHUBCRED}", url: "https://github.com/pdrodavi/${repo}.git"
 
+    git branch: "${inputBranch}", credentialsId: Constants.JENKINS_GITHUB_CREDENTIALS_ID, url: "https://github.com/pdrodavi/${repo}.git"
+
+    /*
     withCredentials([string(credentialsId: Constants.JENKINS_GITHUB_REST_CREDENTIALS_ID, variable: 'GITHUBCRED')]) {
 //        git branch: "${inputBranch}", credentialsId: '%GITHUBCRED%', url: "https://github.com/pdrodavi/${repo}.git"
-        git branch: '${inputBranch}', credentialsId: Constants.JENKINS_GITHUB_REST_CREDENTIALS_ID, url: 'https://github.com/pdrodavi/${repo}.git'
-    }
+
+    }*/
 
 //    git branch: "${inputBranch}", credentialsId: Constants.JENKINS_GITHUB_CREDENTIALS_ID, url: "https://github.com/pdrodavi/${repo}.git"
 
