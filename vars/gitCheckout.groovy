@@ -15,10 +15,6 @@ def call(String repo){
 
     }
 
-//    sh 'ls -a'
-//    sh 'rm -r .git'
-//    sh 'ls -a'
-
     inputBranch = input([
             message: 'Choose Branch',
             parameters: [
@@ -29,8 +25,8 @@ def call(String repo){
     echo "Branch selecionada: ${inputBranch}"
 
 //    git branch: "main", credentialsId: Constants.JENKINS_GITHUB_CREDENTIALS_ID, url: "https://github.com/pdrodavi/${repo}.git"
-    //git url: "https://github.com/pdrodavi/${repo}.git", branch: "${inputBranch}", credentialsId: Constants.JENKINS_GITHUB_REST_CREDENTIALS_ID
-    git url: "https://github.com/pdrodavi/${repo}.git", branch: "${inputBranch}"
+    git url: "https://github.com/pdrodavi/${repo}.git", branch: "${inputBranch}", credentialsId: Constants.JENKINS_GITHUB_REST_CREDENTIALS_ID
+//    git url: "https://github.com/pdrodavi/${repo}.git", branch: "${inputBranch}"
 
 //    git branch: "${inputBranch}", credentialsId: "${GITHUBCRED}", url: "https://github.com/pdrodavi/${repo}.git"
 

@@ -1,4 +1,3 @@
-import br.dev.pedrodavi.jenkins.pipeline.Constants
 import br.dev.pedrodavi.jenkins.pipeline.model.Tool
 import static br.dev.pedrodavi.jenkins.pipeline.utils.ConfigConstants.*
 
