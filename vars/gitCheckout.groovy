@@ -2,6 +2,12 @@ import br.dev.pedrodavi.jenkins.pipeline.Constants
 
 def call(String repo){
 
+    env.RELEASE_SCOPE = input message: 'User input required', ok: 'Release!',
+            parameters: [choice(name: 'RELEASE_SCOPE', choices: 'patch\nminor\nmajor', description: 'What is the release scope?')]
+    }
+
+    echo "${env.RELEASE_SCOPE}"
+
     def lst = [];
 
     withCredentials([string(credentialsId: Constants.JENKINS_GITHUB_REST_CREDENTIALS_ID, variable: 'GITHUBRESTJWT')]) {
