@@ -79,9 +79,13 @@ def call(){
                         message: "Are you sure to proceed?",
                         parameters: [
                                 [$class: 'BooleanParameterDefinition',
-                                 name: 'valor1, valor2, valor3',
+                                 name: 'valor1',
                                  defaultValue: false,
-                                 description: 'Are you sure what are you doing?']
+                                 description: 'Are you sure what are you doing?'],
+                                [$class: 'BooleanParameterDefinition',
+                                 name: 'valor2',
+                                 defaultValue: false,
+                                 description: 'Are you sure what are you doing 2?']
                         ])
 //                echo "It was `${userInputResult.submitter}` who submitted the dialog."
 //                echo "Received `${userInputResult.customBoolean}` as submitted custom boolean parameter."
