@@ -23,8 +23,9 @@ def call(String repo){
         println("Listando após chamada de branches")
         sh "ls -a"
 
-        println("Deletando diretorio")
+        println("Deletando diretorio & .git")
         sh "rm -r ${env.WORKSPACE}/${repo}"
+        sh "rm -r ${env.WORKSPACE}/.git"
 
         println("Listando após remoção de diretorio anterior")
         sh "ls -a"
@@ -32,7 +33,7 @@ def call(String repo){
         echo "Branch selecionada: ${inputBranch}"
 
 //        sh "git clone https://github.com/pdrodavi/${repo}.git"
-        sh 'git clone -b ' + "${inputBranch}" + ' https://pdrodavi:${CREDGH}@github.com/pdrodavi/' + "${repo}" + '.git'
+        sh 'git clone -b ' + "${inputBranch}" + ' https://pdrodavi:' + "${GITHUBRESTJWT}" + '@github.com/pdrodavi/' + "${repo}" + '.git'
 //        sh "git clone https://pdrodavi:${GITHUBRESTJWT}@github.com/pdrodavi/${repo}.git"
 
         sh "ls -a"
