@@ -16,7 +16,7 @@ def call(String repo){
     }
 
 //    sh 'ls -a'
-    sh 'rm -r .git'
+//    sh 'rm -r .git'
 //    sh 'ls -a'
 
     inputBranch = input([
