@@ -4,7 +4,7 @@ def call(String repo){
 
     def lst = [];
 
-    withCredentials([string(credentialsId: Constants.JENKINS_GITHUB_REST_CREDENTIALS_ID, variable: 'GITHUBRESTJWT')]) {
+    withCredentials([string(name: 'CREDGH', credentialsId: Constants.JENKINS_GITHUB_REST_CREDENTIALS_ID, variable: 'GITHUBRESTJWT')]) {
 
         httpRequest consoleLogResponseBody: true, customHeaders: [[maskValue: false, name: 'Accept', value: 'application/vnd.github+json'], [maskValue: false, name: 'Authorization', value: "Bearer ${GITHUBRESTJWT}"], [maskValue: false, name: 'X-GitHub-Api-Version', value: '2022-11-28']], outputFile: 'branches.json', url: "https://api.github.com/repos/pdrodavi/${repo}/branches", wrapAsMultipart: false
 
@@ -23,8 +23,8 @@ def call(String repo){
         echo "Branch selecionada: ${inputBranch}"
 
 //        sh "git clone https://github.com/pdrodavi/${repo}.git"
-//        sh "git clone -b ${inputBranch} https://pdrodavi:${GITHUBRESTJWT}@github.com/pdrodavi/${repo}.git"
-        sh "git clone https://pdrodavi:${GITHUBRESTJWT}@github.com/pdrodavi/${repo}.git"
+        sh 'git clone -b ${inputBranch} https://pdrodavi:${CREDGH}@github.com/pdrodavi/${repo}.git'
+//        sh "git clone https://pdrodavi:${GITHUBRESTJWT}@github.com/pdrodavi/${repo}.git"
 
         sh "ls -a"
         sh "rm ${env.WORKSPACE}/branches.json"
