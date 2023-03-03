@@ -1,4 +1,6 @@
 def call() {
+    sh "pwd"
+    sh "ls -a"
     echo readMavenPom().getArtifactId()
     echo readMavenPom().getVersion()
     echo "Realizando construção do artefato"
