@@ -9,10 +9,11 @@ def call(){
                             choice(name: 'DEPLOY', choices: ['yes', 'no'], description: 'Deploy?')]
             env.ENVIRONMENT = INPUT_PARAMS.ENVIRONMENT
             env.IMAGE_TAG = INPUT_PARAMS.DEPLOY
+
+            echo "All parameters have been set as Environment Variables"
+            echo "Selected Environment: ${env.ENVIRONMENT}"
+            echo "Selected Tag: ${env.DEPLOY}"
         }
 //    }
-
-    echo ${env.ENVIRONMENT}
-    echo ${env.IMAGE_TAG}
 
 }
