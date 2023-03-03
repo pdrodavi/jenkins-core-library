@@ -17,20 +17,24 @@ def call(Map args) {
             gitCheckout(args.repo)
         }
 
-        scanSonar()
+        dir("${env.WORKSPACE}/${args.repo}") {
 
-        stage("Package") {
-            packageArtifact()
-        }
+            scanSonar()
 
-        stage("Build Image") {
-            buildImageDocker()
-        }
+            stage("Package") {
+                packageArtifact()
+            }
 
-        publishToRegistry()
+            stage("Build Image") {
+                buildImageDocker()
+            }
 
-        stage("Prepare for Deploy") {
-            prepareDeploy()
+            publishToRegistry()
+
+            stage("Prepare for Deploy") {
+                prepareDeploy()
+            }
+
         }
 
     }
