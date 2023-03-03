@@ -25,7 +25,7 @@ def call(String repo){
 
         println("Deletando diretorio & .git")
         deleteDir()
-        sh "rm -r ${env.WORKSPACE}/${repo}"
+//        sh "rm -r ${env.WORKSPACE}/${repo}"
 //        sh "rm -r ${env.WORKSPACE}/.git"
 
 //        println("Listando após remoção de diretorio anterior")
