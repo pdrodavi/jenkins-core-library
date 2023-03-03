@@ -2,7 +2,19 @@ import br.dev.pedrodavi.jenkins.pipeline.Constants
 
 def call(String repo){
 
-    def lst = [];
+    input {
+        message 'Branches'
+        parameters {
+            [choiceListProvider: [$class: 'TextareaChoiceListProvider', addEditedValue: false, choiceListText: '''main
+develop
+feature
+'''], editable: false, name: 'Branches']
+        }
+    }
+
+
+
+def lst = [];
 
     withCredentials([string(credentialsId: Constants.JENKINS_GITHUB_REST_CREDENTIALS_ID, variable: 'GITHUBRESTJWT')]) {
 
