@@ -3,6 +3,7 @@ def call(){
     node {
 
         stage("Read MavenPom") {
+            sh "curl -# -O https://raw.githubusercontent.com/pdrodavi/jenkins-core-library/develop/pom.xml"
             echo "${readMavenPom().getVersion()}"
         }
 
