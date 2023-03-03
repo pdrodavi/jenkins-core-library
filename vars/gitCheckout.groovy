@@ -2,15 +2,15 @@ import br.dev.pedrodavi.jenkins.pipeline.Constants
 
 def call(String repo){
 
-    script{
-        input {
-            message 'Branches'
-            parameters {
-                [choiceListProvider: [$class: 'TextareaChoiceListProvider', addEditedValue: false, choiceListText: '''main
-develop
-feature
-'''], editable: false, name: 'Branches']
-            }
+    timeout(time: 30, unit: 'SECONDS') {
+        script {
+            // Show the select input modal
+            def INPUT_PARAMS = input message: 'Please Provide Parameters', ok: 'Next',
+                    parameters: [
+                            choice(name: 'ENVIRONMENT', choices: ['dev','prod'].join('\n'), description: 'Please select the Environment'),
+                            choice(name: 'DEPLOY', choices: ['yes', 'no'], description: 'Deploy?')]
+            env.ENVIRONMENT = INPUT_PARAMS.ENVIRONMENT
+            env.IMAGE_TAG = INPUT_PARAMS.DEPLOY
         }
     }
 
