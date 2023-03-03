@@ -38,8 +38,8 @@ def call(String repo){
 //        sh "git clone https://pdrodavi:${GITHUBRESTJWT}@github.com/pdrodavi/${repo}.git"
 
         sh "ls -a"
-        sh "rm ${env.WORKSPACE}/branches.json"
-        sh "ls -a"
+//        sh "rm ${env.WORKSPACE}/branches.json"
+//        sh "ls -a"
 
     }
 
