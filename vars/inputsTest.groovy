@@ -1,6 +1,5 @@
 def call(){
 
-//    timeout(time: 1, unit: 'DAY') {
         script {
             // Show the select input modal
             def INPUT_PARAMS = input message: 'Please Provide Parameters', ok: 'Next',
@@ -14,6 +13,24 @@ def call(){
             echo "Selected Environment: ${env.ENVIRONMENT}"
             echo "Selected Tag: ${env.IMAGE_TAG}"
         }
-//    }
+
+    script {
+        input id: 'Btn', message: 'Test', ok: 'OK', submitter: 'approve', submitterParameter: 'store'
+    }
+
+    /*
+    script {
+
+        input {
+            id 'deploy-approval'
+            message 'Would you like to deploy?'
+            ok 'Deploy'
+            submitterParameter 'deploy-approved-by'
+            parameters {
+                agentParameter('TARGET_NAME')
+            }
+        }
+
+    }*/
 
 }
