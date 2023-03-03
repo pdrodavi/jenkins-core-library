@@ -2,14 +2,6 @@ import br.dev.pedrodavi.jenkins.pipeline.Constants
 
 def call(String repo){
 
-    inputBranch2 = input([
-            message: 'Lets promote?',
-            ok: 'Release!',
-            parameters: [
-                    extendedChoice(defaultValue: 'blue,green,yellow,blue', description: '', descriptionPropertyValue: 'blue,green,yellow,blue', multiSelectDelimiter: ',', name: 'favColor', quoteValue: false, saveJSONParameterToFile: false, type: 'PT_MULTI_SELECT', value: 'blue,green,yellow,blue', visibleItemCount: 5)
-            ]
-    ])
-
     def lst = [];
 
     withCredentials([string(credentialsId: Constants.JENKINS_GITHUB_REST_CREDENTIALS_ID, variable: 'GITHUBRESTJWT')]) {
