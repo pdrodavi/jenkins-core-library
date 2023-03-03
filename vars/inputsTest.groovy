@@ -4,6 +4,11 @@ def call(){
 
     node {
 
+        stage("Read MavenPom") {
+            echo "${readMavenPom().getVersion()}"
+        }
+
+        /*
         def multiSelect= new ExtendedChoiceParameterDefinition("name",
                 "PT_MULTI_SELECT",
                 "blue,green,yellow,blue",
@@ -39,7 +44,7 @@ def call(){
         def userInput = input  id: 'customID', message: 'Let\'s promote?', ok: 'Release!', parameters:  [multiSelect]
 
 
-        echo "Hello: "+ userInput
+        echo "Hello: "+ userInput*/
 
 //        stage("gitParameter") {
 //            input message: 'Test', parameters: [choice(branch: 'main', branchFilter: '.*', defaultValue: 'main', name: 'Git Parameter', quickFilterEnabled: false, selectedValue: 'DEFAULT', sortMode: 'ASCENDING', tagFilter: '*', type: 'GitParameterDefinition')]
