@@ -31,7 +31,7 @@ def call(){
         stage("Pass") {
 
             script {
-                input message: 'Test', parameters: [password(defaultValue: '', name: 'Pass')]
+                input message: 'Test', parameters: [password(defaultValue: 'pass', name: 'Pass')]
             }
 
         }
@@ -43,7 +43,7 @@ def call(){
                 // Only a basic "process" or "abort" option is provided in the stage view
                 input message: 'Common', ok: 'Proceed',
                         parameters: [
-                                string(name: 'Common', description: 'Input Common'),
+                                string(name: 'Common', description: 'Input Common', defaultValue: 'text'),
                         ]
             }
 
@@ -60,6 +60,26 @@ def call(){
                         parameters: [
                                 [$class: 'BooleanParameterDefinition',
                                  name: 'customBoolean',
+                                 defaultValue: false,
+                                 description: 'Are you sure what are you doing?']
+                        ])
+                echo "It was `${userInputResult.submitter}` who submitted the dialog."
+                echo "Received `${userInputResult.customBoolean}` as submitted custom boolean parameter."
+            }
+
+        }
+
+        stage("Input Checkbox Params") {
+
+            script {
+                def userInputResult = input(
+                        id: "userInput",
+                        submitter: 'administrator',
+                        submitterParameter: 'submitter',
+                        message: "Are you sure to proceed?",
+                        parameters: [
+                                [$class: 'BooleanParameterDefinition',
+                                 name: 'valor1, valor2, valor3',
                                  defaultValue: false,
                                  description: 'Are you sure what are you doing?']
                         ])
