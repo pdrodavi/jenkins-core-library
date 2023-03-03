@@ -31,7 +31,7 @@ def call(){
         stage("Pass") {
 
             script {
-                input message: 'Test', parameters: [password(defaultValue: 'pass', name: 'Pass')]
+                input message: 'Test', parameters: [password(defaultValue: 'pass', description: 'Parâmetro da senha', name: 'pass')]
             }
 
         }
@@ -93,24 +93,10 @@ def call(){
 
         }
 
-        stage("Input Checkbox Only Param") {
+        stage("Input Parâmetro de texto") {
 
             script {
-                def userInputResult = input(
-                        id: "userInput",
-                        submitter: 'administrator',
-                        submitterParameter: 'submitter',
-                        message: "Are you sure to proceed?",
-                        parameters: [
-                                [$class: 'ChoiceParameter',
-                                 name: 'valor1',
-                                 defaultValue: 'a'],
-                                [$class: 'ChoiceParameter',
-                                 name: 'valor2',
-                                 defaultValue: 'b']
-                        ])
-//                echo "It was `${userInputResult.submitter}` who submitted the dialog."
-//                echo "Received `${userInputResult.customBoolean}` as submitted custom boolean parameter."
+                input message: 'Test', parameters: [text(defaultValue: 'default', description: 'Parâmetro de texto', name: 'Text')]
             }
 
         }
