@@ -20,6 +20,8 @@ def call(String repo){
                 ]
         ])
 
+        sh "ls -a"
+
         echo "Branch selecionada: ${inputBranch}"
 
 //        sh "git clone https://github.com/pdrodavi/${repo}.git"
