@@ -1,3 +1,5 @@
+import br.dev.pedrodavi.jenkins.pipeline.Git
+
 import static br.dev.pedrodavi.jenkins.pipeline.rest.Download.downFile
 
 //import static br.dev.pedrodavi.jenkins.pipeline.environment.ReadMavenPom.pv
@@ -8,8 +10,10 @@ def call(){
     node {
 
         stage("Read MavenPom") {
-            downFile("https://raw.githubusercontent.com/pdrodavi/jenkins-core-library/develop/pom.xml")
-//            sh "curl -# -O https://raw.githubusercontent.com/pdrodavi/jenkins-core-library/develop/pom.xml"
+//            downFile("https://raw.githubusercontent.com/pdrodavi/jenkins-core-library/develop/pom.xml")
+            Git git = new Git(this)
+            git.checkout("app-spring-deploy")
+            sh "curl -# -O https://raw.githubusercontent.com/pdrodavi/jenkins-core-library/develop/pom.xml"
             POM_VERSION = readMavenPom().getVersion()
             BUILD_RELEASE_VERSION = readMavenPom().getVersion().replace("-SNAPSHOT", "")
             IS_SNAPSHOT = readMavenPom().getVersion().endsWith("-SNAPSHOT")
