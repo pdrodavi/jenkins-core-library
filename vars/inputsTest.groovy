@@ -49,6 +49,31 @@ def call(){
 
         }
 
+        stage("Input Variable") {
+
+            script {
+                    def userInputResult = input(
+                            id: "userInput",
+                            submitter: 'administrator,jon,daenerys',
+                            submitterParameter: 'submitter',
+                            message: "Are you sure to proceed?",
+                            parameters: [
+                                    [$class: 'TextParameterDefinition',
+                                     name: 'customText',
+                                     defaultValue: "What's on your mind?",
+                                     description: "What's on your mind?"],
+                                    [$class: 'BooleanParameterDefinition',
+                                     name: 'customBoolean',
+                                     defaultValue: false,
+                                     description: 'Are you sure what are you doing?']
+                            ])
+                    echo "It was `${userInputResult.submitter}` who submitted the dialog."
+                    echo "Received `${userInputResult.customText}` as submitted custom text parameter."
+                    echo "Received `${userInputResult.customBoolean}` as submitted custom boolean parameter."
+            }
+
+        }
+
     }
 
 }
