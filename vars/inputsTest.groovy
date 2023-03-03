@@ -83,8 +83,8 @@ def call(){
                                  defaultValue: false,
                                  description: 'Are you sure what are you doing?']
                         ])
-                echo "It was `${userInputResult.submitter}` who submitted the dialog."
-                echo "Received `${userInputResult.customBoolean}` as submitted custom boolean parameter."
+//                echo "It was `${userInputResult.submitter}` who submitted the dialog."
+//                echo "Received `${userInputResult.customBoolean}` as submitted custom boolean parameter."
             }
 
         }
