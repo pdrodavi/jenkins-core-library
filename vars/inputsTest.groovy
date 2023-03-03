@@ -31,7 +31,7 @@ def call(){
         stage("Pass") {
 
             script {
-                input message: 'Test', parameters: [password(defaultValue: 'pass', description: 'Parâmetro da senha', name: 'pass')]
+                input message: 'Test', parameters: [password(defaultValue: 'pass', name: 'Pass')]
             }
 
         }
@@ -89,6 +89,22 @@ def call(){
                         ])
 //                echo "It was `${userInputResult.submitter}` who submitted the dialog."
 //                echo "Received `${userInputResult.customBoolean}` as submitted custom boolean parameter."
+            }
+
+        }
+
+        stage("Input Parâmetro de sequência de caracteres sem Trim") {
+
+            script {
+                input message: 'Test', parameters: [string(defaultValue: 'default', description: 'Parâmetro de sequência de caracteres', name: 'Parâmetro de sequência de caracteres')]
+            }
+
+        }
+
+        stage("Input Parâmetro de sequência de caracteres com Trim") {
+
+            script {
+                input message: 'Test', parameters: [string(defaultValue: 'default', description: 'Parâmetro de sequência de caracteres', name: 'Parâmetro de sequência de caracteres', trim: true)]
             }
 
         }
