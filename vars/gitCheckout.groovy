@@ -13,19 +13,22 @@ def call(String repo){
             lst.add("$key.name")
         }
 
+        inputBranch = input([
+                message: 'Choose Branch',
+                parameters: [
+                        choice(name: 'Branches', choices: lst, description: 'Select branch for deploy')
+                ]
+        ])
+
+        echo "Branch selecionada: ${inputBranch}"
+
+        sh "git clone https://github.com/pdrodavi/${repo}.git"
+
     }
 
-    inputBranch = input([
-            message: 'Choose Branch',
-            parameters: [
-                    choice(name: 'Branches', choices: lst, description: 'Select branch for deploy')
-            ]
-    ])
-
-    echo "Branch selecionada: ${inputBranch}"
 
 //    git branch: "main", credentialsId: Constants.JENKINS_GITHUB_CREDENTIALS_ID, url: "https://github.com/pdrodavi/${repo}.git"
-    git url: "https://github.com/pdrodavi/${repo}.git", branch: "${inputBranch}", credentialsId: Constants.JENKINS_GITHUB_REST_CREDENTIALS_ID
+//    git url: "https://github.com/pdrodavi/${repo}.git", branch: "${inputBranch}", credentialsId: Constants.JENKINS_GITHUB_REST_CREDENTIALS_ID
 //    git url: "https://github.com/pdrodavi/${repo}.git", branch: "${inputBranch}"
 
 //    git branch: "${inputBranch}", credentialsId: "${GITHUBCRED}", url: "https://github.com/pdrodavi/${repo}.git"
