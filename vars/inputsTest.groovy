@@ -11,15 +11,23 @@ def call(){
 
         stage("Read MavenPom") {
 //            downFile("https://raw.githubusercontent.com/pdrodavi/jenkins-core-library/develop/pom.xml")
-            Git git = new Git(this)
-            git.checkout("app-spring-deploy")
+
             sh "curl -# -O https://raw.githubusercontent.com/pdrodavi/jenkins-core-library/develop/pom.xml"
+
+            NAME_PROJECT = readMavenPom().getName()
             POM_VERSION = readMavenPom().getVersion()
             BUILD_RELEASE_VERSION = readMavenPom().getVersion().replace("-SNAPSHOT", "")
             IS_SNAPSHOT = readMavenPom().getVersion().endsWith("-SNAPSHOT")
+
+            println(NAME_PROJECT)
             println(POM_VERSION)
             println(BUILD_RELEASE_VERSION)
             println(IS_SNAPSHOT)
+
+            TEST_IMAGE = "${NAME_PROJECT}:${env.BUILD_NUMBER}"
+
+            println(TEST_IMAGE)
+
 //            pv2()
 //            def v = pv()
 //            echo "${v}"
