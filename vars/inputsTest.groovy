@@ -1,5 +1,5 @@
-import static br.dev.pedrodavi.jenkins.pipeline.environment.ReadMavenPom.pv
-import static br.dev.pedrodavi.jenkins.pipeline.environment.ReadMavenPom.pv2
+//import static br.dev.pedrodavi.jenkins.pipeline.environment.ReadMavenPom.pv
+//import static br.dev.pedrodavi.jenkins.pipeline.environment.ReadMavenPom.pv2
 
 def call(){
 
@@ -7,7 +7,13 @@ def call(){
 
         stage("Read MavenPom") {
             sh "curl -# -O https://raw.githubusercontent.com/pdrodavi/jenkins-core-library/develop/pom.xml"
-            pv2()
+            POM_VERSION = readMavenPom().getVersion()
+            BUILD_RELEASE_VERSION = readMavenPom().getVersion().replace("-SNAPSHOT", "")
+            IS_SNAPSHOT = readMavenPom().getVersion().endsWith("-SNAPSHOT")
+            println(POM_VERSION)
+            println(BUILD_RELEASE_VERSION)
+            println(IS_SNAPSHOT)
+//            pv2()
 //            def v = pv()
 //            echo "${v}"
         }
