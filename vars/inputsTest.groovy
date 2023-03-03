@@ -12,7 +12,7 @@ def call(){
 
             echo "All parameters have been set as Environment Variables"
             echo "Selected Environment: ${env.ENVIRONMENT}"
-            echo "Selected Tag: ${env.DEPLOY}"
+            echo "Selected Tag: ${env.IMAGE_TAG}"
         }
 //    }
 
