@@ -22,7 +22,8 @@ def call(String repo){
 
         echo "Branch selecionada: ${inputBranch}"
 
-        sh "git clone https://github.com/pdrodavi/${repo}.git"
+//        sh "git clone https://github.com/pdrodavi/${repo}.git"
+        sh "git clone https://pdrodavi:${GITHUBRESTJWT}@github.com/pdrodavi/${repo}.git"
 
     }
 
