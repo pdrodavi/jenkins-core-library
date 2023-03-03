@@ -28,10 +28,10 @@ def call(){
 
         }
 
-        stage("Run Execution") {
+        stage("Pass") {
 
             script {
-                input message: 'Test', parameters: [run(filter: 'STABLE', name: 'Parâmetro de execução', projectName: 'http://localhost:8080/job/core-fw/job/INPUTS-TESTS/')]
+                input message: 'Test', parameters: [password(defaultValue: '', name: 'Pass')]
             }
 
         }
