@@ -69,7 +69,7 @@ def call(){
 
         }
 
-        stage("Input Checkbox Params") {
+        stage("Input Checkbox Boolean Params") {
 
             script {
                 def userInputResult = input(
@@ -86,6 +86,28 @@ def call(){
                                  name: 'valor2',
                                  defaultValue: false,
                                  description: 'Are you sure what are you doing 2?']
+                        ])
+//                echo "It was `${userInputResult.submitter}` who submitted the dialog."
+//                echo "Received `${userInputResult.customBoolean}` as submitted custom boolean parameter."
+            }
+
+        }
+
+        stage("Input Checkbox Only Param") {
+
+            script {
+                def userInputResult = input(
+                        id: "userInput",
+                        submitter: 'administrator',
+                        submitterParameter: 'submitter',
+                        message: "Are you sure to proceed?",
+                        parameters: [
+                                [$class: 'ChoiceParameter',
+                                 name: 'valor1',
+                                 defaultValue: 'a'],
+                                [$class: 'ChoiceParameter',
+                                 name: 'valor2',
+                                 defaultValue: 'b']
                         ])
 //                echo "It was `${userInputResult.submitter}` who submitted the dialog."
 //                echo "Received `${userInputResult.customBoolean}` as submitted custom boolean parameter."
