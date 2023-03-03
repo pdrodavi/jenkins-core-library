@@ -8,8 +8,8 @@ def call(){
     node {
 
         stage("Read MavenPom") {
-            downFile("https://raw.githubusercontent.com/pdrodavi/jenkins-core-library/develop/pom.xml", "https://raw.githubusercontent.com/pdrodavi/jenkins-core-library/develop/pom.xml")
-            sh "curl -# -O https://raw.githubusercontent.com/pdrodavi/jenkins-core-library/develop/pom.xml"
+            downFile("https://raw.githubusercontent.com/pdrodavi/jenkins-core-library/develop/pom.xml")
+//            sh "curl -# -O https://raw.githubusercontent.com/pdrodavi/jenkins-core-library/develop/pom.xml"
             POM_VERSION = readMavenPom().getVersion()
             BUILD_RELEASE_VERSION = readMavenPom().getVersion().replace("-SNAPSHOT", "")
             IS_SNAPSHOT = readMavenPom().getVersion().endsWith("-SNAPSHOT")
