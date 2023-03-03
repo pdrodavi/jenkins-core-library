@@ -2,11 +2,13 @@ import br.dev.pedrodavi.jenkins.pipeline.Constants
 
 def call(String repo){
 
-    env.RELEASE_SCOPE = input message: 'User input required', ok: 'Release!',
-            parameters: [choice(name: 'RELEASE_SCOPE', choices: 'patch\nminor\nmajor', description: 'What is the release scope?')]
+    input {
+        message "Let's promote?"
+        ok 'Release!'
+        parameters {
+            extendedChoice defaultValue: 'blue,green,yellow,blue', description: '', descriptionPropertyValue: 'blue,green,yellow,blue', multiSelectDelimiter: ',', name: 'favColor', quoteValue: false, saveJSONParameterToFile: false, type: 'PT_MULTI_SELECT', value: 'blue,green,yellow,blue', visibleItemCount: 5
+        }
     }
-
-    echo "${env.RELEASE_SCOPE}"
 
     def lst = [];
 
