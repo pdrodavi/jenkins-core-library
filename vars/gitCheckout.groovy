@@ -23,8 +23,8 @@ def call(String repo){
         println("Listando após chamada de branches")
         sh "ls -a"
 
-//        println("Deletando diretorio & .git")
-//        sh "rm -r ${env.WORKSPACE}/${repo}"
+        println("Deletando diretorio & .git")
+        sh "rm -r ${env.WORKSPACE}/${repo}"
 //        sh "rm -r ${env.WORKSPACE}/.git"
 
 //        println("Listando após remoção de diretorio anterior")
