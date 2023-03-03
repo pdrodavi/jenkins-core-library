@@ -2,6 +2,11 @@ def call(){
 
     node {
 
+        stage("gitParameter") {
+            input message: 'Test', parameters: [gitParameter(branch: 'main', branchFilter: '.*', defaultValue: 'main', name: 'Git Parameter', quickFilterEnabled: false, selectedValue: 'DEFAULT', sortMode: 'ASCENDING', tagFilter: '*', type: 'GitParameterDefinition')]
+        }
+
+        /*
         stage("Multiples Choice") {
 
             script {
@@ -140,7 +145,7 @@ def call(){
                     echo "Received `${userInputResult.customBoolean}` as submitted custom boolean parameter."
             }
 
-        }
+        } */
 
     }
 
