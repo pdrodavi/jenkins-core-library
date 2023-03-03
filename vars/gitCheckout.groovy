@@ -2,21 +2,7 @@ import br.dev.pedrodavi.jenkins.pipeline.Constants
 
 def call(String repo){
 
-    timeout(time: 30, unit: 'SECONDS') {
-        script {
-            // Show the select input modal
-            def INPUT_PARAMS = input message: 'Please Provide Parameters', ok: 'Next',
-                    parameters: [
-                            choice(name: 'ENVIRONMENT', choices: ['dev','prod'].join('\n'), description: 'Please select the Environment'),
-                            choice(name: 'DEPLOY', choices: ['yes', 'no'], description: 'Deploy?')]
-            env.ENVIRONMENT = INPUT_PARAMS.ENVIRONMENT
-            env.IMAGE_TAG = INPUT_PARAMS.DEPLOY
-        }
-    }
-
-
-
-def lst = [];
+    def lst = [];
 
     withCredentials([string(credentialsId: Constants.JENKINS_GITHUB_REST_CREDENTIALS_ID, variable: 'GITHUBRESTJWT')]) {
 
