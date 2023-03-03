@@ -1,4 +1,5 @@
 import static br.dev.pedrodavi.jenkins.pipeline.environment.ReadMavenPom.pv
+import static br.dev.pedrodavi.jenkins.pipeline.environment.ReadMavenPom.pv2
 
 def call(){
 
@@ -6,8 +7,9 @@ def call(){
 
         stage("Read MavenPom") {
             sh "curl -# -O https://raw.githubusercontent.com/pdrodavi/jenkins-core-library/develop/pom.xml"
-            def v = pv()
-            echo "${v}"
+            pv2()
+//            def v = pv()
+//            echo "${v}"
         }
 
         /*
