@@ -20,6 +20,13 @@ def call(String repo){
                 ]
         ])
 
+        println("Listando após chamada de branches")
+        sh "ls -a"
+
+        println("Deletando diretorio")
+        deleteDir("${env.WORKSPACE}/${repo}")
+
+        println("Listando após remoção de diretorio anterior")
         sh "ls -a"
 
         echo "Branch selecionada: ${inputBranch}"
