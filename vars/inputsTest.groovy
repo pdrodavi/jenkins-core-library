@@ -36,6 +36,19 @@ def call(){
 
         }
 
+        stage("Input Common") {
+
+            script {
+                // This step pauses Pipeline execution and allows the user to interact and control the flow of the build.
+                // Only a basic "process" or "abort" option is provided in the stage view
+                input message: 'Common', ok: 'Proceed',
+                        parameters: [
+                                string(name: 'Common', description: 'Input Common'),
+                        ]
+            }
+
+        }
+
     }
 
 }
