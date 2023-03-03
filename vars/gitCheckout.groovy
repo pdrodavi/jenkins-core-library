@@ -2,13 +2,15 @@ import br.dev.pedrodavi.jenkins.pipeline.Constants
 
 def call(String repo){
 
-    input {
-        message 'Branches'
-        parameters {
-            [choiceListProvider: [$class: 'TextareaChoiceListProvider', addEditedValue: false, choiceListText: '''main
+    script{
+        input {
+            message 'Branches'
+            parameters {
+                [choiceListProvider: [$class: 'TextareaChoiceListProvider', addEditedValue: false, choiceListText: '''main
 develop
 feature
 '''], editable: false, name: 'Branches']
+            }
         }
     }
 
