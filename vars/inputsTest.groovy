@@ -1,6 +1,6 @@
 def call(){
 
-    timeout(time: 1, unit: 'DAY') {
+//    timeout(time: 1, unit: 'DAY') {
         script {
             // Show the select input modal
             def INPUT_PARAMS = input message: 'Please Provide Parameters', ok: 'Next',
@@ -10,7 +10,7 @@ def call(){
             env.ENVIRONMENT = INPUT_PARAMS.ENVIRONMENT
             env.IMAGE_TAG = INPUT_PARAMS.DEPLOY
         }
-    }
+//    }
 
     echo ${env.ENVIRONMENT}
     echo ${env.IMAGE_TAG}
