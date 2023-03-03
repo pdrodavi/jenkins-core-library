@@ -1,10 +1,49 @@
+import com.cwctravel.hudson.plugins.extended_choice_parameter.ExtendedChoiceParameterDefinition
+
 def call(){
 
     node {
 
-        stage("gitParameter") {
-            input message: 'Test', parameters: [choice(branch: 'main', branchFilter: '.*', defaultValue: 'main', name: 'Git Parameter', quickFilterEnabled: false, selectedValue: 'DEFAULT', sortMode: 'ASCENDING', tagFilter: '*', type: 'GitParameterDefinition')]
-        }
+        def multiSelect= new ExtendedChoiceParameterDefinition("name",
+                "PT_MULTI_SELECT",
+                "blue,green,yellow,blue",
+                "project name",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "blue,green,yellow,blue",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                false,
+                false,
+                3,
+                "multiselect",
+                ",")
+
+        def userInput = input  id: 'customID', message: 'Let\'s promote?', ok: 'Release!', parameters:  [multiSelect]
+
+
+        echo "Hello: "+ userInput
+
+//        stage("gitParameter") {
+//            input message: 'Test', parameters: [choice(branch: 'main', branchFilter: '.*', defaultValue: 'main', name: 'Git Parameter', quickFilterEnabled: false, selectedValue: 'DEFAULT', sortMode: 'ASCENDING', tagFilter: '*', type: 'GitParameterDefinition')]
+//        }
 
         /*
         stage("Multiples Choice") {
