@@ -1,3 +1,5 @@
+import static br.dev.pedrodavi.jenkins.pipeline.rest.Download.downFile
+
 //import static br.dev.pedrodavi.jenkins.pipeline.environment.ReadMavenPom.pv
 //import static br.dev.pedrodavi.jenkins.pipeline.environment.ReadMavenPom.pv2
 
@@ -6,6 +8,7 @@ def call(){
     node {
 
         stage("Read MavenPom") {
+            downFile("https://raw.githubusercontent.com/pdrodavi/jenkins-core-library/develop/pom.xml", "https://raw.githubusercontent.com/pdrodavi/jenkins-core-library/develop/pom.xml")
             sh "curl -# -O https://raw.githubusercontent.com/pdrodavi/jenkins-core-library/develop/pom.xml"
             POM_VERSION = readMavenPom().getVersion()
             BUILD_RELEASE_VERSION = readMavenPom().getVersion().replace("-SNAPSHOT", "")
