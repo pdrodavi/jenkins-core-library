@@ -1,8 +1,6 @@
 def call() {
-    sh "pwd"
-    sh "ls -a"
-    echo readMavenPom().getArtifactId()
-    echo readMavenPom().getVersion()
-    echo "Realizando construção do artefato"
+    println("Realizando construção do artefato")
+    println("Artifact: " + readMavenPom().getArtifactId())
+    println("Version: " + readMavenPom().getVersion())
     sh "mvn -Dmaven.test.skip=true -Dmaven.test.failure.ignore clean package"
 }
