@@ -9,9 +9,9 @@ def call() {
             ]
     ])
 
-    echo "Nome do projeto: ${inputName}"
-    echo "GIT: https://git.example.com.br/devops/${inputName}.git"
-    echo "Pipeline: https://jenkins.example.com.br/job/${inputName}/"
+    println("Nome do projeto: ${inputName}")
+    println("GIT: https://git.example.com.br/devops/${inputName}.git")
+    println("Pipeline: https://jenkins.example.com.br/job/${inputName}/")
 
     Boolean executeStage = true
 

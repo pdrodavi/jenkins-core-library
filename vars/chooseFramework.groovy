@@ -8,11 +8,11 @@ def call() {
     ])
 
     if ("${inputFramework}" == 'Spring') {
-        echo "Framework selecionado: ${inputFramework}"
+        println("Framework selecionado: ${inputFramework}")
     } else if ("${inputFramework}" == 'Quarkus') {
-        echo "Framework selecionado: ${inputFramework}"
+        println("Framework selecionado: ${inputFramework}")
     } else {
-        echo 'Step Skipped'
+        println("Step Skipped")
     }
 
 }
