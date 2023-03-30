@@ -1,4 +1,4 @@
-library identifier: 'jenkins-shared-library-core@main', retriever: modernSCM(
+library identifier: 'jenkins-shared-library-core@kubernetes/1.0.0', retriever: modernSCM(
   [$class: 'GitSCMSource',
     remote: 'https://github.com/pdrodavi/jenkins-shared-library-core.git'
   ])
