@@ -52,8 +52,6 @@ def call() {
                         sh "ls"
                         sh "pwd"
 
-                        //withCredentials([string(name: 'CREDGH', credentialsId: 'github-rest-token', variable: 'GITHUBRESTJWT')]) {
-
                             sh "curl \\\n" +
                     "  -X POST \\\n" +
                     "  -H \"Accept: application/vnd.github+json\" \\\n" +
@@ -70,15 +68,9 @@ def call() {
                             sh "git commit -m 'repo auto'"
                             sh "git remote add origin https://github.com/Srvex/${inputName}.git"
                             sh "git push --set-upstream https://pdrodavi:${GITHUBRESTJWT}@github.com/Srvex/${inputName}.git main"
-                            //'https://pdrodavi:' + "${GITHUBRESTJWT}" + '@github.com/cwrdbr/smartentry.git'
-                            //sh "git push -u origin main"
-                        //}
                         
                         cleanWs()
-                        
-                        //dir('/var/jenkins_home/workspace/pipelines-master/create-project/') {
-                          //  sh "rm -r ${inputResponseProject}@tmp"
-                        //}
+                    
                     }
 
             }   
