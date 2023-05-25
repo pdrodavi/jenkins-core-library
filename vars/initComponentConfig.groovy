@@ -76,9 +76,9 @@ def call() {
                         
                         cleanWs()
                         
-                        dir('/var/jenkins_home/workspace/pipelines-master/create-project/') {
-                            sh "rm -r ${inputResponseProject}@tmp"
-                        }
+                        //dir('/var/jenkins_home/workspace/pipelines-master/create-project/') {
+                          //  sh "rm -r ${inputResponseProject}@tmp"
+                        //}
                     }
 
             }   
